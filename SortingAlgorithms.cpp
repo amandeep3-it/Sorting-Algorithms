@@ -158,7 +158,10 @@ template<class T> void SelectionSort(vector<T>& A) {
     }
 }
 
-int main() {
+/*
+cls && g++ SortingAlgorithms.cpp -o SortingAlgorithms && SortingAlgorithms
+*/
+int main(int argc, char *argv[]) {
     vector<int> A = { 3, 4, 0, 2, 0, 2 };
     // 3, 4, 0, 2, 0, 2 --> 0 0 2 2 3 4
 
@@ -166,11 +169,28 @@ int main() {
     for (int i=0; i<(A.size() - 1); i++) cout << A[i] << ", ";
     cout << A[A.size() - 1] << endl << endl;
 
-    CountingSort(A);
-    // InsertionSort(A);
-    // MergeSort(A);
-    // RandQuickSort(A);
-    // SelectionSort(A);
+    if (argc >= 2) {
+        string name = argv[1];        
+        if (name == "InsertionSort") {
+            cout << "Sorting Array using Insertion Sort" << endl << endl;
+            InsertionSort(A);
+        } else if (name == "MergeSort") {
+            cout << "Sorting Array using Merge Sort" << endl << endl;
+            MergeSort(A);
+        } else if (name == "RandQuickSort") {
+            cout << "Sorting Array using Random Quick Sort" << endl << endl;
+            RandQuickSort(A);
+        } else if (name == "SelectionSort") {
+            cout << "Sorting Array using Selection Sort" << endl << endl;
+            SelectionSort(A);
+        } else {
+            cout << "Sorting Array using Counting Sort" << endl << endl;
+            CountingSort(A);
+        }
+    } else {
+        cout << "Sorting Array using Counting Sort" << endl << endl;
+        CountingSort(A);
+    }
 
     cout << "Sorted Array:  ";
     for (int i=0; i<(A.size() - 1); i++) cout << A[i] << ", ";
