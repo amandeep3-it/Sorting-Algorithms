@@ -169,24 +169,22 @@ int main(int argc, char *argv[]) {
     for (int i=0; i<(A.size() - 1); i++) cout << A[i] << ", ";
     cout << A[A.size() - 1] << endl << endl;
 
-    if (argc >= 2) {
-        string name = argv[1];        
-        if (name == "InsertionSort") {
-            cout << "Sorting Array using Insertion Sort" << endl << endl;
-            InsertionSort(A);
-        } else if (name == "MergeSort") {
-            cout << "Sorting Array using Merge Sort" << endl << endl;
-            MergeSort(A);
-        } else if (name == "RandQuickSort") {
-            cout << "Sorting Array using Random Quick Sort" << endl << endl;
-            RandQuickSort(A);
-        } else if (name == "SelectionSort") {
-            cout << "Sorting Array using Selection Sort" << endl << endl;
-            SelectionSort(A);
-        } else {
-            cout << "Sorting Array using Counting Sort" << endl << endl;
-            CountingSort(A);
-        }
+    string name = "CountingSort";
+
+    if (argc >= 2) name = argv[1];
+
+    if (name == "InsertionSort") {
+        cout << "Sorting Array using Insertion Sort" << endl << endl;
+        InsertionSort(A);
+    } else if (name == "MergeSort") {
+        cout << "Sorting Array using Merge Sort" << endl << endl;
+        MergeSort(A);
+    } else if (name == "RandQuickSort") {
+        cout << "Sorting Array using Random Quick Sort" << endl << endl;
+        RandQuickSort(A);
+    } else if (name == "SelectionSort") {
+        cout << "Sorting Array using Selection Sort" << endl << endl;
+        SelectionSort(A);
     } else {
         cout << "Sorting Array using Counting Sort" << endl << endl;
         CountingSort(A);
